@@ -15,7 +15,6 @@ def allproducts(request,c_slug=None):
         products_list=product.objects.all().filter(category=c_page,available=True)
     else:
         products_list=product.objects.all().filter(available=True)
-        c_page=category.objects.all()
     paginator=Paginator(products_list,6)
     try:
         page=int(request.GET.get('page',"1"))
